@@ -4,9 +4,9 @@ const groceryItem = require("./groceryItem");
 const shoppingListSchema = mongoose.Schema({
   name: String,
   address: String,
-  groceryItems: [groceryItem.Schema],
+  groceryItems: [groceryItem.schema],
 });
 
-const shoppingList = mongoose.model("ShoppingList", shoppingListSchema);
+const shoppingList = mongoose.model("shoppingList", shoppingListSchema);
 
 module.exports = shoppingList;

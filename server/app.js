@@ -25,6 +25,12 @@ mongoose.connect(
   }
 );
 
+app.get("/api/shopping-list", async (req, res) => {
+  let shoppingLists = await shoppingList.find({});
+
+  res.json(shoppingLists);
+});
+
 app.post("/api/shopping-lists", async (req, res) => {
   let name = req.body.name;
   let address = req.body.address;

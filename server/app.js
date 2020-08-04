@@ -25,6 +25,27 @@ mongoose.connect(
   }
 );
 
+app.delete("/api/grocery-item/:groceryItemId", (req, res) => {
+  let groceryItemId = req.params.groceryItemId;
+
+  shoppingList.findOne(
+    { "groceryItems._id": groceryItemId },
+    (error, shoppingList) => {
+      if (error) {
+        res.json({ msg: "Unable to delete grocery item" });
+      } else {
+        shoppingList.groceryItems = shoppingList.groceryItems.filter(
+          (gi) => gi._id != groceryItemId
+        );
+
+        shoppingList.save().then((error, savedResult) => {
+          res.json({ msg: "Saved", success: true });
+        });
+      }
+    }
+  );
+});
+
 app.get("/api/shopping-list/:shoppingListId", async (req, res) => {
   let shoppingListId = req.params.shoppingListId;
   let shoppingListPage = await shoppingList.findOne({ _id: shoppingListId });

@@ -12,10 +12,13 @@ const populateShoppingList = () => {
     .then((shoppingLists) => {
       const shoppingListItems = shoppingLists.map((shoppingList) => {
         return `<li class="list-group-item d-flex justify-content-between align-items-center">
+        <a href="view-shopping-list.html?id=${shoppingList._id}">
             ${shoppingList.name}
+            </a>
             <span class="badge badge-primary badge-pill">
               ${shoppingList.groceryItems.length}
             </span>
+            
           </li>`;
       });
 

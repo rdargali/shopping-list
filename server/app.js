@@ -25,6 +25,13 @@ mongoose.connect(
   }
 );
 
+app.get("/api/shopping-list/:shoppingListId", async (req, res) => {
+  let shoppingListId = req.params.shoppingListId;
+  let shoppingListPage = await shoppingList.findOne({ _id: shoppingListId });
+
+  return res.json(shoppingListPage);
+});
+
 app.post("/api/grocery-items", async (req, res) => {
   let name = req.body.name;
   let price = req.body.price;

@@ -25,6 +25,30 @@ mongoose.connect(
   }
 );
 
+app.post("/api/grocery-items", async (req, res) => {
+  let name = req.body.name;
+  let price = req.body.price;
+  let quantity = req.body.quantity;
+  let shoppingListId = req.body.shoppingListId;
+
+  const newGroceryItem = new groceryItem({
+    name: name,
+    price: price,
+    quantity: quantity,
+  });
+
+  const newShoppingList = await shoppingList.findById(shoppingListId);
+  newShoppingList.groceryItems.push(newGroceryItem);
+
+  const savedShoppingList = await newShoppingList.save();
+
+  if (savedShoppingList) {
+    res.json(savedShoppingList);
+  } else {
+    res.status(500).json({ msg: "Unable to save grocery item" });
+  }
+});
+
 app.get("/api/shopping-list", async (req, res) => {
   let shoppingLists = await shoppingList.find({});
 

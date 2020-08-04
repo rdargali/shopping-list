@@ -10,11 +10,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
         integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-    <title>View All Shopping List</title>
+    <title>Add Shopping List</title>
 </head>
 
 <body>
-    <h1>Add Shopping List</h1>
+    <h1>Add Grocery Item</h1>
 
     <div class="container">
         <!-- Menu -->
@@ -28,17 +28,35 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="./add-shopping-list.html">Add Shopping List</a>
+                    <a class="nav-item nav-link" href="add-shopping-list.html">Add Shopping List</a>
                     <a class="nav-item nav-link" href="add-grocery-item.html">Add Grocery Item</a>
 
                 </div>
             </div>
         </nav>
 
-        <ul class="list-group" id="shoppingListUL">
 
-        </ul>
+        <form>
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" id="shoppingListDropDownButton" type="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Select Shopping List</button>
+                <div class="dropdown-menu" id="shoppingListDropDownMenu" aria-labelledby="dropdownMenuButton"></div>
+            </div>
 
+            <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control" id="nameTextBox" placeholder="Enter name">
+            </div>
+            <div class="form-group">
+                <label>Price</label>
+                <input type="text" class="form-control" id="priceTextBox" placeholder="Enter price">
+            </div>
+            <div class="form-group">
+                <label>Quantity</label>
+                <input type="text" class="form-control" id="quantityTextBox" placeholder="Enter quantity">
+            </div>
+            <button type="submit" class="btn btn-primary" id="saveGroceryItem">Save</button>
+        </form>
 
     </div>
 
@@ -51,7 +69,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
         integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
         crossorigin="anonymous"></script>
-    <script src="view-all-shopping-lists.js"></script>
+    <script src="add-shopping-list.js"></script>
 </body>
 
 </html>
